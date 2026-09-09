@@ -5,7 +5,7 @@
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   background-color: #020203;
 
   &__main {

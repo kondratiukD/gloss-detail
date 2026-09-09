@@ -1,6 +1,9 @@
 @import "/src/shared/index.scss";
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background-color: #020203;
   height: 70px;
   padding: 0 $padding-mobile;
@@ -124,7 +127,7 @@
   display: flex;
   position: fixed;
   padding: 0 $padding-mobile;
-  z-index: 1000;
+  z-index: 1001;
   top: 0;
   right: 0;
   left: 0;
