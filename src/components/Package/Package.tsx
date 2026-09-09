@@ -15,7 +15,7 @@ const PACKAGES: PackageCard[] = [
     name: "MAINTENANCE DETAIL",
     price: 149,
     priceSuffix: "/suv + $30",
-    note: "*For vehicles with light dirt",
+    note: "*Best for vehicles with light dirt",
     features: [
       "Hand wash and foam treatment",
       "Wheels and tires cleaned",
@@ -35,13 +35,13 @@ const PACKAGES: PackageCard[] = [
       "Shampoo & Condition Leather Seats",
       "Clay-bar decontamination",
       "Iron decon & spray sealant",
+      "UV Protection"
     ],
   },
   {
     id: "exterior",
     name: "Exterior",
     price: 89,
-    priceSuffix: "/suv + $30",
     features: [
      "Hand wash and foam treatment",
       "Wheels and tires cleaned",

@@ -22,7 +22,7 @@ export const MainPage: React.FC = () => {
             aria-hidden="true"
           />
           <span>
-            Brooklyn, Queens, Staten Island, Long Island &amp; Manhattan
+            Brooklyn, Queens, Staten Island, Long Island
           </span>
         </p>
 
