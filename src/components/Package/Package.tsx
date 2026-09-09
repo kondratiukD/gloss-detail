@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { BookingModal, type BookingPackage } from "../BookingModal";
 import styles from "./Package.module.scss";
+import { asset } from "../../shared/asset";
 
 type PackageCard = BookingPackage & {
   note?: string;
@@ -112,7 +113,7 @@ export const Package: React.FC = () => {
                 <li key={feature} className={styles.card__feature}>
                   <img
                     className={styles.card__icon}
-                    src="/img/icons/Arrow-right-dark.svg"
+                    src={asset("img/icons/Arrow-right-dark.svg")}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"

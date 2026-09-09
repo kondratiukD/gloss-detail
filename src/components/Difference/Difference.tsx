@@ -1,26 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
+import { asset } from "../../shared/asset";
 import styles from "./Difference.module.scss";
 
 const SLIDES = [
   {
     id: 1,
-    src: "/img/Group-1.jpg",
+    src: asset("img/Group-1.jpg"),
     alt: "Rear seats before and after detailing",
   },
   {
     id: 2,
-    src: "/img/Group-2.jpg",
+    src: asset("img/Group-2.jpg"),
     alt: "Interior before and after detailing",
   },
   {
     id: 3,
-    src: "/img/Group-3.jpg",
+    src: asset("img/Group-3.jpg"),
     alt: "Door sill before and after detailing",
   },
   {
     id: 4,
-    src: "/img/Group-4.jpg",
+    src: asset("img/Group-4.jpg"),
     alt: "Engine bay before and after detailing",
   }
 ] as const;
@@ -79,7 +80,7 @@ export const Difference: React.FC = () => {
           disabled={index === 0}
           aria-label="Previous results"
         >
-          <img src="/img/icons/Arrow-left.svg" alt="" />
+          <img src={asset("img/icons/Arrow-left.svg")} alt="" />
         </button>
 
         <div className={styles.carousel__viewport} ref={viewportRef}>
@@ -121,7 +122,7 @@ export const Difference: React.FC = () => {
           disabled={index === maxIndex}
           aria-label="Next results"
         >
-          <img src="/img/icons/Arrow-right.svg" alt="" />
+          <img src={asset("img/icons/Arrow-right.svg")} alt="" />
         </button>
       </div>
 

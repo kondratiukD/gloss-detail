@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import styles from "./Header.module.scss";
 import classNames from "classnames";
+import { asset } from "../../shared/asset";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -23,7 +24,7 @@ export const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles["header--desktop"]}>
         <a className={styles.logoFull} href="#home" aria-label="Gloss & Detail">
-          <img src="/img/icons/fullLogo.svg" alt="Gloss & Detail" />
+          <img src={asset("img/icons/fullLogo.svg")} alt="Gloss & Detail" />
         </a>
 
         <nav className={styles.desktopNav}>
@@ -43,7 +44,7 @@ export const Header: React.FC = () => {
 
       <div className={styles["header--mobile"]}>
         <a className={styles.logoMobile} href="#home" aria-label="Gloss & Detail">
-          <img src="/img/icons/logo.svg" alt="Gloss & Detail" />
+          <img src={asset("img/icons/logo.svg")} alt="Gloss & Detail" />
         </a>
 
         <div className={styles.burgerSide}>
@@ -58,7 +59,7 @@ export const Header: React.FC = () => {
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
-            <img src="/img/icons/Burger.svg" alt="" />
+            <img src={asset("img/icons/Burger.svg")} alt="" />
           </button>
         </div>
       </div>
@@ -74,7 +75,7 @@ export const Header: React.FC = () => {
             aria-label="Gloss & Detail"
             onClick={closeMenu}
           >
-            <img src="/img/icons/fullLogo.svg" alt="Gloss & Detail" />
+            <img src={asset("img/icons/fullLogo.svg")} alt="Gloss & Detail" />
           </a>
 
           <button
@@ -83,7 +84,7 @@ export const Header: React.FC = () => {
             className={styles.toggleMenu}
             aria-label="Close menu"
           >
-            <img src="/img/icons/Close.svg" alt="" />
+            <img src={asset("img/icons/Close.svg")} alt="" />
           </button>
         </div>
 

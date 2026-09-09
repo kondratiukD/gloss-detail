@@ -16,6 +16,7 @@ import {
   isValidZip,
   saveBooking,
 } from "../../shared/formStorage";
+import { asset } from "../../shared/asset";
 import styles from "./BookingModal.module.scss";
 
 export type BookingPackage = {
@@ -211,7 +212,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           onClick={onClose}
           aria-label="Close"
         >
-          <img src="/img/icons/Close.svg" alt="" />
+          <img src={asset("img/icons/Close.svg")} alt="" />
         </button>
 
         {isSuccess ? (

@@ -10,7 +10,7 @@
   //background-color: #020203;
   background-image:
     //linear-gradient(rgba(16, 19, 25, 0), rgba(16, 19, 25, 0.8), rgba(16, 19, 25, 1)),
-    url("/img/mainPhoto.png");
+    url("#{$public-base}img/mainPhoto.png");
   background-position: center left;
   background-repeat: no-repeat;
   background-size: cover;

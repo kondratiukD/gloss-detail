@@ -1,4 +1,5 @@
 import styles from "./MainPage.module.scss";
+import { asset } from "../../shared/asset";
 
 export const MainPage: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ export const MainPage: React.FC = () => {
         <p className={styles.hero__location}>
           <img
             className={styles.hero__locationIcon}
-            src="/img/icons/icon-map.svg"
+            src={asset("img/icons/icon-map.svg")}
             alt=""
             aria-hidden="true"
           />

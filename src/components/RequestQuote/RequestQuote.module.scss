@@ -6,7 +6,7 @@
   min-height: 560px;
   overflow: hidden;
   background-color: #000000;
-  background-image: url("/img/Car-background.png");
+  background-image: url("#{$public-base}img/Car-background.png");
   background-position: center right;
   background-repeat: no-repeat;
   background-size: cover;

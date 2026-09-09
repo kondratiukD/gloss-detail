@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import { asset } from "../../shared/asset";
 
 const LINKS = [
   { label: "Home", href: "#home" },
@@ -15,7 +16,7 @@ export const Footer: React.FC = () => {
           href="#home"
           aria-label="Gloss & Detail"
         >
-          <img src="/img/icons/fullLogo.svg" alt="Gloss & Detail mobile car detailing NYC" />
+          <img src={asset("img/icons/fullLogo.svg")} alt="Gloss & Detail mobile car detailing NYC" />
         </a>
 
         <nav className={styles.footer__nav} aria-label="Footer">

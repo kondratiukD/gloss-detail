@@ -10,3 +10,6 @@ $secondary-color: #181D25;
 $button-light: #657081;
 $button-dark: #2C343F;
 $detail-color: #657081;
+
+// Must match `base` in vite.config.ts (GitHub Pages project path)
+$public-base: "/gloss-detail/";
