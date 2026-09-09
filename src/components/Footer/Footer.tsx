@@ -34,9 +34,8 @@ export const Footer: React.FC = () => {
 
       <p className={styles.footer__seo}>
         Gloss &amp; Detail provides mobile car detailing across New York City —
-        Brooklyn, Queens, Staten Island, Long Island, and Manhattan. Book
-        at-home auto detailing for interior, exterior, and full deep clean
-        packages.
+        Brooklyn, Queens, Staten Island, and Long Island. Book at-home auto
+        detailing for interior, exterior, and full deep clean packages.
       </p>
     </footer>
   );
