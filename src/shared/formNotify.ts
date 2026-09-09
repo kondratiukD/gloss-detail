@@ -7,14 +7,19 @@ function getBotToken(): string {
   );
 }
 
-function getChatId(): string {
-  return (
-    (import.meta.env.VITE_TELEGRAM_CHAT_ID as string | undefined)?.trim() ?? ""
-  );
+/** Supports one or more chat ids, separated by comma. */
+function getChatIds(): string[] {
+  const raw =
+    (import.meta.env.VITE_TELEGRAM_CHAT_ID as string | undefined)?.trim() ?? "";
+  if (!raw) return [];
+  return raw
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean);
 }
 
 export function isFormNotifyConfigured(): boolean {
-  return getBotToken().length > 0 && getChatId().length > 0;
+  return getBotToken().length > 0 && getChatIds().length > 0;
 }
 
 type NotifyResult = { ok: true } | { ok: false; message: string };
@@ -26,18 +31,11 @@ function escapeHtml(value: string): string {
     .replaceAll(">", "&gt;");
 }
 
-async function sendTelegramMessage(text: string): Promise<NotifyResult> {
-  const token = getBotToken();
-  const chatId = getChatId();
-
-  if (!token || !chatId) {
-    return {
-      ok: false,
-      message:
-        "Telegram notifications are not configured yet. Add bot token and chat id.",
-    };
-  }
-
+async function sendToChat(
+  token: string,
+  chatId: string,
+  text: string,
+): Promise<NotifyResult> {
   try {
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
@@ -74,6 +72,34 @@ async function sendTelegramMessage(text: string): Promise<NotifyResult> {
       message: "Network error. Please check your connection and try again.",
     };
   }
+}
+
+async function sendTelegramMessage(text: string): Promise<NotifyResult> {
+  const token = getBotToken();
+  const chatIds = getChatIds();
+
+  if (!token || chatIds.length === 0) {
+    return {
+      ok: false,
+      message:
+        "Telegram notifications are not configured yet. Add bot token and chat id.",
+    };
+  }
+
+  const results = await Promise.all(
+    chatIds.map((chatId) => sendToChat(token, chatId, text)),
+  );
+
+  const failed = results.filter((result) => !result.ok);
+  if (failed.length === results.length) {
+    return failed[0] ?? {
+      ok: false,
+      message: "Failed to send Telegram notification. Please try again.",
+    };
+  }
+
+  // At least one recipient got the message — treat as success.
+  return { ok: true };
 }
 
 export async function notifyBooking(
