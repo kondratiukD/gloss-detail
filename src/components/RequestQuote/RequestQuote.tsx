@@ -7,6 +7,7 @@ import {
   isValidPhone,
   saveQuote,
 } from "../../shared/formStorage";
+import { notifyQuote } from "../../shared/formNotify";
 import styles from "./RequestQuote.module.scss";
 
 type FormValues = {
@@ -43,6 +44,8 @@ export const RequestQuote: React.FC = () => {
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const clearError = (key: keyof FormErrors) => {
     setErrors((prev) => {
@@ -59,13 +62,24 @@ export const RequestQuote: React.FC = () => {
     clearError(name);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = validate(values, agreed);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    saveQuote(values);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const entry = saveQuote(values);
+    const result = await notifyQuote(entry);
+    setIsSubmitting(false);
+
+    if (!result.ok) {
+      setSubmitError(result.message);
+      return;
+    }
+
     setIsSuccess(true);
     setValues(INITIAL_VALUES);
     setAgreed(false);
@@ -219,8 +233,18 @@ export const RequestQuote: React.FC = () => {
                 <span className={styles.form__error}>{errors.agreed}</span>
               ) : null}
 
-              <button type="submit" className={styles.form__submit}>
-                Submit
+              {submitError ? (
+                <span className={styles.form__error} role="alert">
+                  {submitError}
+                </span>
+              ) : null}
+
+              <button
+                type="submit"
+                className={styles.form__submit}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
               </button>
             </form>
           )}

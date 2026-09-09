@@ -16,6 +16,7 @@ import {
   isValidZip,
   saveBooking,
 } from "../../shared/formStorage";
+import { notifyBooking } from "../../shared/formNotify";
 import { asset } from "../../shared/asset";
 import styles from "./BookingModal.module.scss";
 
@@ -101,6 +102,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [values, setValues] = useState<FormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -114,6 +117,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       setIsVisible(true);
       setIsClosing(false);
       setIsSuccess(false);
+      setIsSubmitting(false);
+      setSubmitError("");
       setAgreed(false);
       setValues(INITIAL_VALUES);
       setErrors({});
@@ -173,18 +178,30 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     });
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = validate(values, agreed);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
 
-    saveBooking({
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    const entry = saveBooking({
       packageId: activePackage.id,
       packageName: activePackage.name,
       packagePrice: activePackage.price,
       ...values,
     });
+
+    const result = await notifyBooking(entry);
+    setIsSubmitting(false);
+
+    if (!result.ok) {
+      setSubmitError(result.message);
+      return;
+    }
+
     setIsSuccess(true);
   };
 
@@ -292,8 +309,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <span className={styles.form__error}>{errors.agreed}</span>
               ) : null}
 
-              <button type="submit" className={styles.form__submit}>
-                Submit
+              {submitError ? (
+                <span className={styles.form__error} role="alert">
+                  {submitError}
+                </span>
+              ) : null}
+
+              <button
+                type="submit"
+                className={styles.form__submit}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
               </button>
             </form>
           </>
