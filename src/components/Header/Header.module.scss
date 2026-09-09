@@ -1,0 +1,178 @@
+@import "/src/shared/index.scss";
+
+.header {
+  background-color: #020203;
+  height: 70px;
+  padding: 0 $padding-mobile;
+  width: 100%;
+
+  @include on-desktop {
+    height: 97px;
+    padding: 0 $padding-desktop;
+  }
+
+  &--mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.logoFull,
+.logoMobile {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: auto;
+    max-height: 40px;
+    width: auto;
+  }
+}
+
+.desktopNav {
+  justify-self: center;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 36px;
+  }
+
+  &__item {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    a {
+      color: inherit;
+      @include hover(opacity, 0.7);
+    }
+  }
+}
+
+.burgerSide {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  width: 184px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid $button-dark;
+  background-color: $button-light;
+  font-size: 16px;
+  font-weight: 400;
+  transition:
+    opacity 0.3s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: #{$desktop-min-width - 1px}) {
+    width: 100px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+.toggleMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: none;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.menu {
+  display: flex;
+  position: fixed;
+  padding: 0 $padding-mobile;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100dvh;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  background-color: #020203;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__item {
+    cursor: pointer;
+    font-size: 24px;
+
+    a {
+      color: inherit;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

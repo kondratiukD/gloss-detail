@@ -1,0 +1,195 @@
+@import "/src/shared/index.scss";
+
+.packages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 72px $padding-mobile;
+  background-color: $button-light;
+  text-align: center;
+
+  @include on-desktop {
+    padding: 100px $padding-desktop;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: $primary-color;
+
+    @include on-desktop {
+      font-size: 40px;
+      line-height: 1.1;
+    }
+  }
+
+  &__subtitle {
+    margin: 12px 0 0;
+    max-width: 640px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.92);
+
+    @include on-desktop {
+      margin-top: 14px;
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1136px;
+    margin: 40px 0 0;
+    padding: 0;
+    list-style: none;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 48px;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 30px 30px;
+  border-radius: 28px;
+  background-color: #ffffff;
+  text-align: left;
+
+  @include on-desktop {
+    padding: 30px 30px;
+    border-radius: 32px;
+  }
+
+  &__name,
+  &__price,
+  &__feature,
+  &__feature span {
+    color: $secondary-color;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__note {
+    margin: 8px 0 0 -2px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: rgba(24, 29, 37, 0.55);
+
+    @include on-desktop {
+      margin-left: -4px;
+      font-size: 13px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 2px;
+    margin-top: 12px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    @include on-desktop {
+      margin-top: 14px;
+    }
+  }
+
+  &__priceValue {
+    color: $secondary-color;
+  }
+
+  &__priceSuffix {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: rgba(24, 29, 37, 0.55);
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.35;
+  }
+
+  &__icon {
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 24px;
+    border: none;
+    border-radius: 20px;
+    background-color: $secondary-color;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ffffff;
+    transition:
+      opacity 0.3s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import "/src/shared/index.scss";
+
+.footer {
+  width: 100%;
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 32px $padding-mobile;
+
+    @include on-desktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 40px $padding-desktop;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-height: 32px;
+
+      @include on-desktop {
+        max-height: 40px;
+      }
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    min-width: 0;
+
+    @include on-desktop {
+      width: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include on-desktop {
+      justify-content: flex-end;
+      gap: 36px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $primary-color;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__seo {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $padding-mobile 28px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+
+    @include on-desktop {
+      padding: 0 $padding-desktop 36px;
+      font-size: 13px;
+    }
+  }
+}

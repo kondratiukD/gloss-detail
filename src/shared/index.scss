@@ -1,0 +1,11 @@
+@import './variables';
+@import './mixins';
+@import './fonts';
+
+.mainContainer {
+  padding: 0 16px;
+
+  @include on-desktop {
+    padding: 0 56px;
+  }
+}

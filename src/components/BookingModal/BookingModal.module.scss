@@ -1,0 +1,393 @@
+@import "/src/shared/index.scss";
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlayOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  padding: max(12px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+  background-color: rgba(0, 0, 0, 0.78);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  animation: overlayIn 0.25s ease both;
+
+  @include on-desktop {
+    align-items: center;
+    padding: 24px;
+  }
+
+  &--closing {
+    animation: overlayOut 0.22s ease both;
+  }
+}
+
+.modal {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 520px;
+  max-height: none;
+  margin: auto 0;
+  padding: 24px 16px 20px;
+  overflow: visible;
+  border-radius: 16px;
+  background-color: #000000;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  animation: modalIn 0.3s ease both;
+
+  @media (min-width: 480px) {
+    margin: 24px auto;
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+
+  @include on-desktop {
+    margin: auto;
+    max-height: calc(100dvh - 48px);
+    padding: 36px 40px 32px;
+    overflow-y: auto;
+    border-radius: 24px;
+  }
+
+  &--closing {
+    animation: modalOut 0.22s ease both;
+  }
+
+  &--success {
+    max-width: min(460px, 100%);
+    background-color: #1f232b;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    transition: opacity 0.25s ease;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include on-desktop {
+      top: 20px;
+      right: 20px;
+
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 40px 16px 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: $primary-color;
+
+    @media (min-width: 480px) {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 24px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  &__note {
+    margin: -8px 0 16px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.48);
+
+    @media (min-width: 480px) {
+      margin-top: -10px;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    @include on-desktop {
+      margin-top: -12px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  }
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 4px 8px;
+
+  @include on-desktop {
+    padding: 24px 8px 12px;
+  }
+
+  &__icon {
+    display: grid;
+    place-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    color: $primary-color;
+
+    @include on-desktop {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 320px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: $primary-color;
+
+    @include on-desktop {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    margin: 12px 0 0;
+    max-width: 340px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.75);
+
+    @include on-desktop {
+      margin-top: 14px;
+      font-size: 16px;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 480px) {
+    gap: 12px;
+  }
+
+  @include on-desktop {
+    gap: 14px;
+  }
+
+  &__srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    background-color: transparent;
+    color: $primary-color;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    @include on-desktop {
+      height: 44px;
+      padding: 0 20px;
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    &:focus {
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    &--error {
+      border-color: #e57373;
+    }
+  }
+
+  &__error {
+    display: block;
+    margin-top: 6px;
+    padding-left: 4px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #ef9a9a;
+  }
+
+  &__consent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+
+    @include on-desktop {
+      font-size: 13px;
+    }
+
+    span {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  &__checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 3px;
+    background-color: #30363d;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+
+    &:checked::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background-color: $primary-color;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 999px;
+    background-color: $button-light;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: $primary-color;
+    transition:
+      opacity 0.3s ease,
+      transform 0.25s ease;
+
+    @include on-desktop {
+      height: 44px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+  }
+}

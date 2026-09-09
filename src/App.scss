@@ -1,0 +1,15 @@
+@import "./shared/index.scss";
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #020203;
+
+  &__main {
+    flex: 1;
+    width: 100%;
+  }
+}

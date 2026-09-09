@@ -1,0 +1,298 @@
+@import "/src/shared/index.scss";
+
+.quote {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  overflow: hidden;
+  background-color: #000000;
+  background-image: url("/img/Car-background.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
+
+  @include on-desktop {
+    min-height: 720px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      #000000 0%,
+      rgba(0, 0, 0, 0.92) 28%,
+      rgba(0, 0, 0, 0.55) 52%,
+      rgba(0, 0, 0, 0.15) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width;
+    min-height: inherit;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 30px;
+
+    @include on-desktop {
+      width: auto;
+      padding: 100px 40px 100px $padding-desktop;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: $primary-color;
+
+    @include on-desktop {
+      font-size: 40px;
+      line-height: 1.1;
+    }
+  }
+
+  &__subtitle {
+    margin: 8px 0 0;
+    max-width: 487px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.78);
+
+    @include on-desktop {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 487px;
+  margin-top: 18px;
+  box-sizing: border-box;
+
+  @include on-desktop {
+    margin-top: 16px;
+    gap: 16px;
+  }
+
+  &__srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background-color: transparent;
+    color: $primary-color;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    &:focus {
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    &--error {
+      border-color: #e57373;
+    }
+  }
+
+  &__error {
+    display: block;
+    margin-top: 6px;
+    padding-left: 4px;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #ef9a9a;
+  }
+
+  &__input {
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+
+    @include on-desktop {
+      height: 44px;
+      padding: 0 20px;
+    }
+  }
+
+  &__textarea {
+    min-height: 72px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    resize: vertical;
+
+    @include on-desktop {
+      min-height: 91px;
+      padding: 14px 20px;
+      border-radius: 24px;
+    }
+  }
+
+  &__consent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+
+    @include on-desktop {
+      gap: 10px;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+
+    span {
+      flex: 1;
+      min-width: 0;
+      white-space: normal;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &__checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 3px;
+    background-color: #30363d;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+
+    @include on-desktop {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:checked::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background-color: $primary-color;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    height: 34px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 999px;
+    background-color: $button-dark;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: $primary-color;
+    transition:
+      opacity 0.3s ease,
+      transform 0.25s ease;
+
+    @include on-desktop {
+      height: 44px;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 487px;
+  margin-top: 24px;
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: $primary-color;
+
+    @include on-desktop {
+      font-size: 22px;
+    }
+  }
+
+  &__text {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.75);
+  }
+}

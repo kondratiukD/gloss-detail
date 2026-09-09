@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="39" viewBox="0 0 128 78" role="img" aria-labelledby="gd-title gd-desc">
+  <title id="gd-title">Gloss &amp; Detail</title>
+  <desc id="gd-desc">Forward-leaning GD monogram with a small shine accent. Original artwork on a transparent background.</desc>
+  <g fill="#F5F5F2"><g transform="translate(4 4) scale(0.9)"><g transform="matrix(1 0 -.12 1 9 0)"><path d="M51 5H31C12 5 2 15 2 34V42C2 61 12 71 31 71H53V35H31V48H39V57H31C21 57 16 52 16 42V34C16 24 21 19 31 19H48Z" /><path fill-rule="evenodd" d="M61 5H85C106 5 117 16 117 36V40C117 60 106 71 85 71H61ZM75 19V57H84C97 57 103 51 103 40V36C103 25 97 19 84 19Z" /></g><path d="M122 0C122 8 125 11 133 11C125 11 122 14 122 22C122 14 119 11 111 11C119 11 122 8 122 0Z" /></g></g>
+</svg>
