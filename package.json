@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "homepage": "https://kondratiukd.github.io/gloss-detail",
+  "homepage": "https://glossanddetail.com",
   "dependencies": {
     "classnames": "^2.5.1",
     "react": "^19.2.8",
