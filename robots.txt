@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kondratiukd.github.io/gloss-detail/sitemap.xml
+Sitemap: https://glossanddetail.com/sitemap.xml
