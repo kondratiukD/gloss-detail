@@ -23,6 +23,11 @@ const SLIDES = [
     id: 4,
     src: asset("img/Group-4.jpg"),
     alt: "Engine bay before and after detailing",
+  },
+  {
+    id: 5,
+    src: asset("img/Group-5.jpg"),
+    alt: "Engine bay before and after detailing",
   }
 ] as const;
 
@@ -69,7 +74,7 @@ export const Difference: React.FC = () => {
         See the Difference
       </h2>
       <p className={styles.difference__subtitle}>
-        Explore real results from our mobile detailing services
+        We take the time to get every detail right, leaving your car looking its best and feeling fresh, inside and out.
       </p>
 
       <div className={styles.carousel}>

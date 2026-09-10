@@ -35,7 +35,7 @@ const PACKAGES: PackageCard[] = [
       "Shampoo & Condition Leather Seats",
       "Clay-bar decontamination",
       "Iron decon & spray sealant",
-      "UV Protection"
+      "UV Protection",
     ],
   },
   {
@@ -43,12 +43,12 @@ const PACKAGES: PackageCard[] = [
     name: "Exterior",
     price: 89,
     features: [
-     "Hand wash and foam treatment",
+      "Hand wash and foam treatment",
       "Wheels and tires cleaned",
       "Glass & trim detail",
       "Bug removal & spray sealant",
       "Tire dressing finish",
-    ]
+    ],
   },
   {
     id: "interior",
@@ -88,8 +88,10 @@ export const Package: React.FC = () => {
         Choose Your Detailing Package
       </h2>
       <p className={styles.packages__subtitle}>
-        Mobile car detailing packages for NYC — interior, exterior, and deep
-        clean options delivered to your location
+        We use premium, vehicle-safe products to protect every surface and leave
+        your car clean, fresh, and in the best possible condition. Our mobile
+        setup is fully equipped with its own water and power, so we bring
+        everything needed directly to you.
       </p>
 
       <ul className={styles.packages__list}>
@@ -143,10 +145,7 @@ export const Package: React.FC = () => {
         ))}
       </ul>
 
-      <BookingModal
-        selectedPackage={selectedPackage}
-        onClose={closeModal}
-      />
+      <BookingModal selectedPackage={selectedPackage} onClose={closeModal} />
     </section>
   );
 };
