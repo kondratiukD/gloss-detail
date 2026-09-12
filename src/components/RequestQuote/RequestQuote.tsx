@@ -8,6 +8,7 @@ import {
   saveQuote,
 } from "../../shared/formStorage";
 import { notifyQuote } from "../../shared/formNotify";
+import { reportQuoteConversion } from "../../shared/gtagConversion";
 import styles from "./RequestQuote.module.scss";
 
 type FormValues = {
@@ -80,6 +81,7 @@ export const RequestQuote: React.FC = () => {
       return;
     }
 
+    reportQuoteConversion();
     setIsSuccess(true);
     setValues(INITIAL_VALUES);
     setAgreed(false);

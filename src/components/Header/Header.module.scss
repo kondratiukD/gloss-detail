@@ -73,6 +73,22 @@
   }
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 24px;
+}
+
+.phone {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: inherit;
+  white-space: nowrap;
+  @include hover(opacity, 0.7);
+}
+
 .burgerSide {
   display: flex;
   align-items: center;
@@ -83,7 +99,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  justify-self: end;
   width: 184px;
   height: 40px;
   border-radius: 20px;

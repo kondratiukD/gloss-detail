@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import styles from "./Header.module.scss";
 import classNames from "classnames";
 import { asset } from "../../shared/asset";
+import { BUSINESS_PHONE } from "../../shared/phone";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -37,9 +38,14 @@ export const Header: React.FC = () => {
           </ul>
         </nav>
 
-        <a href="#services" className={styles.button}>
-          Book Now
-        </a>
+        <div className={styles.headerActions}>
+          <a className={styles.phone} href={BUSINESS_PHONE.href}>
+            {BUSINESS_PHONE.label}
+          </a>
+          <a href="#services" className={styles.button}>
+            Book Now
+          </a>
+        </div>
       </div>
 
       <div className={styles["header--mobile"]}>
@@ -97,6 +103,11 @@ export const Header: React.FC = () => {
                 </a>
               </li>
             ))}
+            <li className={styles.mobileNav__item}>
+              <a href={BUSINESS_PHONE.href} onClick={closeMenu}>
+                {BUSINESS_PHONE.label}
+              </a>
+            </li>
           </ul>
         </nav>
       </aside>

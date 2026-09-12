@@ -1,5 +1,6 @@
 import styles from "./Footer.module.scss";
 import { asset } from "../../shared/asset";
+import { BUSINESS_PHONE } from "../../shared/phone";
 
 const LINKS = [
   { label: "Home", href: "#home" },
@@ -28,6 +29,11 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <a className={styles.footer__link} href={BUSINESS_PHONE.href}>
+                {BUSINESS_PHONE.label}
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
