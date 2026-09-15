@@ -7,10 +7,6 @@
       <stop offset="0.58" stop-color="#ffd45c"/>
       <stop offset="1" stop-color="#ffc928"/>
     </radialGradient>
-    <radialGradient id="ink" cx="50%" cy="45%" r="75%">
-      <stop offset="0" stop-color="#18212b"/>
-      <stop offset="1" stop-color="#080e15"/>
-    </radialGradient>
   </defs>
 
   <path fill="url(#gold)" d="M627 58
@@ -25,13 +21,13 @@
     C89 374 196 381 230 342 C265 302 243 191 296 164
     C347 138 420 197 475 180 C530 163 566 58 627 58 Z"/>
 
-  <path fill="url(#ink)" d="M627 260
+  <path fill="#181D25" d="M627 260
     C644 320 665 342 728 360
     C665 378 644 402 627 469
     C610 402 589 378 526 360
     C589 342 610 320 627 260 Z"/>
 
-  <g fill="url(#ink)" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-weight="900" letter-spacing="-8">
+  <g fill="#181D25" text-anchor="middle" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-weight="900" letter-spacing="-8">
     <text x="627" y="696" font-size="191">MOST</text>
     <text x="627" y="895" font-size="182">POPULAR</text>
   </g>
