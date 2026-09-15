@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">Most Popular badge</title>
+  <desc id="desc">Gold scalloped badge with a dark sparkle and MOST POPULAR lettering.</desc>
+  <defs>
+    <radialGradient id="gold" cx="50%" cy="44%" r="62%">
+      <stop offset="0" stop-color="#ffe17d"/>
+      <stop offset="0.58" stop-color="#ffd45c"/>
+      <stop offset="1" stop-color="#ffc928"/>
+    </radialGradient>
+    <radialGradient id="ink" cx="50%" cy="45%" r="75%">
+      <stop offset="0" stop-color="#18212b"/>
+      <stop offset="1" stop-color="#080e15"/>
+    </radialGradient>
+  </defs>
+
+  <path fill="url(#gold)" d="M627 58
+    C688 58 724 163 779 180 C834 197 907 138 958 164
+    C1011 191 989 302 1024 342 C1058 381 1165 374 1192 431
+    C1219 487 1137 556 1140 612 C1144 669 1228 732 1201 788
+    C1173 844 1064 837 1029 878 C994 918 1018 1028 965 1055
+    C913 1081 838 1021 782 1039 C727 1057 690 1162 627 1162
+    C565 1162 528 1057 472 1039 C416 1021 341 1081 289 1055
+    C236 1028 260 918 225 878 C190 837 81 844 53 788
+    C26 732 110 669 114 612 C117 556 35 487 62 431
+    C89 374 196 381 230 342 C265 302 243 191 296 164
+    C347 138 420 197 475 180 C530 163 566 58 627 58 Z"/>
+
+  <path fill="url(#ink)" d="M627 260
+    C644 320 665 342 728 360
+    C665 378 644 402 627 469
+    C610 402 589 378 526 360
+    C589 342 610 320 627 260 Z"/>
+
+  <g fill="url(#ink)" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-weight="900" letter-spacing="-8">
+    <text x="627" y="696" font-size="191">MOST</text>
+    <text x="627" y="895" font-size="182">POPULAR</text>
+  </g>
+</svg>
