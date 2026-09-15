@@ -77,16 +77,6 @@
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 24px;
-}
-
-.phone {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.2;
-  color: inherit;
-  white-space: nowrap;
-  @include hover(opacity, 0.7);
 }
 
 .burgerSide {
@@ -191,6 +181,18 @@
       &:hover {
         opacity: 0.7;
       }
+    }
+  }
+
+  &__cta {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+
+    .button {
+      width: 184px;
+      height: 40px;
+      font-size: 16px;
     }
   }
 }

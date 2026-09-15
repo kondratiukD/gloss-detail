@@ -39,11 +39,12 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className={styles.headerActions}>
-          <a className={styles.phone} href={BUSINESS_PHONE.href}>
-            {BUSINESS_PHONE.label}
-          </a>
-          <a href="#services" className={styles.button}>
-            Book Now
+          <a
+            href={BUSINESS_PHONE.href}
+            className={styles.button}
+            aria-label={`Call us at ${BUSINESS_PHONE.label}`}
+          >
+            Call Us
           </a>
         </div>
       </div>
@@ -54,8 +55,12 @@ export const Header: React.FC = () => {
         </a>
 
         <div className={styles.burgerSide}>
-          <a href="#services" className={styles.button}>
-            Book Now
+          <a
+            href={BUSINESS_PHONE.href}
+            className={styles.button}
+            aria-label={`Call us at ${BUSINESS_PHONE.label}`}
+          >
+            Call Us
           </a>
 
           <button
@@ -103,9 +108,14 @@ export const Header: React.FC = () => {
                 </a>
               </li>
             ))}
-            <li className={styles.mobileNav__item}>
-              <a href={BUSINESS_PHONE.href} onClick={closeMenu}>
-                {BUSINESS_PHONE.label}
+            <li className={styles.mobileNav__cta}>
+              <a
+                href={BUSINESS_PHONE.href}
+                className={styles.button}
+                onClick={closeMenu}
+                aria-label={`Call us at ${BUSINESS_PHONE.label}`}
+              >
+                Call Us
               </a>
             </li>
           </ul>

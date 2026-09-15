@@ -12,6 +12,7 @@
   },
   "homepage": "https://glossanddetail.com",
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "classnames": "^2.5.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"

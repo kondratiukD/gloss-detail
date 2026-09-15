@@ -30,8 +30,12 @@ export const Footer: React.FC = () => {
               </li>
             ))}
             <li>
-              <a className={styles.footer__link} href={BUSINESS_PHONE.href}>
-                {BUSINESS_PHONE.label}
+              <a
+                className={styles.footer__link}
+                href={BUSINESS_PHONE.href}
+                aria-label={`Call us at ${BUSINESS_PHONE.label}`}
+              >
+                Call Us
               </a>
             </li>
           </ul>

@@ -10,12 +10,13 @@ export type StoredBooking = {
   firstName: string;
   lastName: string;
   phone: string;
-  street: string;
-  city: string;
-  state: string;
-  zip: string;
+  address: string;
   carMake: string;
   modelYear: string;
+  /** ISO start of service window (America/New_York wall time converted to UTC). */
+  startAt?: string;
+  /** ISO end of service window. */
+  endAt?: string;
 };
 
 export type StoredQuote = {

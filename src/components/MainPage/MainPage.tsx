@@ -4,6 +4,16 @@ import { asset } from "../../shared/asset";
 export const MainPage: React.FC = () => {
   return (
     <section id="home" className={styles.hero} aria-label="Hero">
+      <img
+        className={styles.hero__image}
+        src={asset("img/mainPhoto.webp")}
+        alt=""
+        width={1440}
+        height={661}
+        fetchPriority="high"
+        decoding="async"
+      />
+
       <div className={styles.hero__content}>
         <h1 className={styles.hero__title}>
           Premium Mobile Car Detailing in NYC
@@ -19,6 +29,8 @@ export const MainPage: React.FC = () => {
             className={styles.hero__locationIcon}
             src={asset("img/icons/icon-map.svg")}
             alt=""
+            width={20}
+            height={20}
             aria-hidden="true"
           />
           <span>

@@ -6,29 +6,39 @@ import styles from "./Difference.module.scss";
 const SLIDES = [
   {
     id: 1,
-    src: asset("img/Group-1.jpg"),
+    src: asset("img/Group-1.webp"),
     alt: "Rear seats before and after detailing",
+    width: 1400,
+    height: 933,
   },
   {
     id: 2,
-    src: asset("img/Group-2.jpg"),
+    src: asset("img/Group-2.webp"),
     alt: "Interior before and after detailing",
+    width: 1400,
+    height: 700,
   },
   {
     id: 3,
-    src: asset("img/Group-3.jpg"),
+    src: asset("img/Group-3.webp"),
     alt: "Door sill before and after detailing",
+    width: 1400,
+    height: 933,
   },
   {
     id: 4,
-    src: asset("img/Group-4.jpg"),
+    src: asset("img/Group-4.webp"),
     alt: "Engine bay before and after detailing",
+    width: 1400,
+    height: 933,
   },
   {
     id: 5,
-    src: asset("img/Group-5.jpg"),
+    src: asset("img/Group-5.webp"),
     alt: "Engine bay before and after detailing",
-  }
+    width: 1400,
+    height: 933,
+  },
 ] as const;
 
 const GAP = 16;
@@ -109,6 +119,8 @@ export const Difference: React.FC = () => {
                     className={styles.card__image}
                     src={slide.src}
                     alt={slide.alt}
+                    width={slide.width}
+                    height={slide.height}
                     loading="lazy"
                     decoding="async"
                   />

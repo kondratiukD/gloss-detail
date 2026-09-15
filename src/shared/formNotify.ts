@@ -1,4 +1,9 @@
 import type { StoredBooking, StoredQuote } from "./formStorage";
+import {
+  formatBookingDateLabel,
+  formatDateKey,
+  formatSlotRangeLabel,
+} from "./bookingSlots";
 
 function getBotToken(): string {
   return (
@@ -105,16 +110,22 @@ async function sendTelegramMessage(text: string): Promise<NotifyResult> {
 export async function notifyBooking(
   booking: StoredBooking,
 ): Promise<NotifyResult> {
+  const schedule =
+    booking.startAt && booking.endAt
+      ? `${formatBookingDateLabel(formatDateKey(new Date(booking.startAt)))}, ${formatSlotRangeLabel(new Date(booking.startAt), new Date(booking.endAt))}`
+      : "Not selected";
+
   const text = [
     "<b>New Booking Request</b>",
     "",
     `<b>Package:</b> ${escapeHtml(booking.packageName)} — $${booking.packagePrice}`,
     `<b>Name:</b> ${escapeHtml(`${booking.firstName} ${booking.lastName}`.trim())}`,
     `<b>Phone:</b> ${escapeHtml(booking.phone)}`,
-    `<b>Address:</b> ${escapeHtml(`${booking.street}, ${booking.city}, ${booking.state} ${booking.zip}`)}`,
+    `<b>Address:</b> ${escapeHtml(booking.address)}`,
     `<b>Car:</b> ${escapeHtml(`${booking.carMake} ${booking.modelYear}`.trim())}`,
+    `<b>Schedule:</b> ${escapeHtml(schedule)}`,
     `<b>ID:</b> ${escapeHtml(booking.id)}`,
-    `<b>Time:</b> ${escapeHtml(booking.createdAt)}`,
+    `<b>Submitted:</b> ${escapeHtml(booking.createdAt)}`,
   ].join("\n");
 
   return sendTelegramMessage(text);
