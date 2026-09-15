@@ -4,22 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Ads: load after page so it does not compete with LCP -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-18446797738"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      window.addEventListener("load", function () {
-        var s = document.createElement("script");
-        s.src = "https://www.googletagmanager.com/gtag/js?id=AW-18446797738";
-        s.async = true;
-        s.onload = function () {
-          gtag("js", new Date());
-          gtag("config", "AW-18446797738");
-        };
-        document.head.appendChild(s);
-      });
+      gtag("js", new Date());
+      gtag("config", "AW-18446797738");
     </script>
 
     <title>Mobile Car Detailing NYC | Gloss &amp; Detail</title>
@@ -75,34 +71,10 @@
       content="https://glossanddetail.com/img/mainPhoto-og.jpg"
     />
 
-    <style>
-      html,
-      body {
-        margin: 0;
-        background: #020203;
-      }
-      #root > img[data-lcp] {
-        display: block;
-        width: 100%;
-        height: 100svh;
-        object-fit: cover;
-        object-position: center left;
-        background: #020203;
-      }
-      @media (min-width: 1200px) {
-        #root > img[data-lcp] {
-          object-position: center;
-        }
-      }
-    </style>
-
     <link
       rel="preload"
       as="image"
-      type="image/webp"
-      href="/img/mainPhoto-mobile.webp"
-      imagesrcset="/img/mainPhoto-mobile.webp 1200w, /img/mainPhoto.webp 1440w"
-      imagesizes="100vw"
+      href="/img/mainPhoto.webp"
       fetchpriority="high"
     />
 
@@ -201,23 +173,10 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-ZBKTaiaF.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Sj_UWFNT.css">
+    <script type="module" crossorigin src="/assets/index-BuEhJnoN.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BY8y1jcJ.css">
   </head>
   <body>
-    <div id="root">
-      <!-- Static LCP image paints before React JS; replaced on mount -->
-      <img
-        data-lcp
-        src="/img/mainPhoto-mobile.webp"
-        srcset="/img/mainPhoto-mobile.webp 1200w, /img/mainPhoto.webp 1440w"
-        sizes="100vw"
-        width="1200"
-        height="550"
-        alt=""
-        fetchpriority="high"
-        decoding="async"
-      />
-    </div>
+    <div id="root"></div>
   </body>
 </html>
